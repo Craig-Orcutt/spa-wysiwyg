@@ -1,3 +1,12 @@
 .border {
     border: 1px dotted blue;
 }
+
+.image{
+    width: 200px;
+    height: 200px;
+}
+
+.peopleDiv {
+    display: inline-block;
+}

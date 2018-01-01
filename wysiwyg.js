@@ -1,41 +1,42 @@
-let people = [{"title": "Samurai",
-"name": "Tim",
+let people = [{"title": "Golf Legend",
+"name": "Tiger Woods",
 "bio": "Stuff",
-"image": "dontcare",
+"image": 'images/tigerWoods.jpg',
 "lifespan": {
-    "birth": 1845,
-    "death": 1900
-}}, {"title": "Samurai",
-"name": "John",
+    "birth": 1973,
+    "death": 'Still Alive'
+}}, {"title": "Golf Phenom",
+"name": "Jordan Speith",
 "bio": "Stuff",
-"image": "dontcare",
+"image": "images/jordan-spieth.jpg",
 "lifespan": {
-    "birth": 1845,
-    "death": 1900
-}}, {"title": "Samurai",
-"name": "Joe",
+    "birth": 1994,
+    "death": 'Still Alive'
+}}, {"title": "Golf Samurai",
+"name": "Rickie Fowler",
 "bio": "Stuff",
-"image": "dontcare",
+"image": "images/rickieFowler.jpg",
 "lifespan": {
-    "birth": 1845,
-    "death": 1900
-}}, {"title": "Samurai",
-"name": "Sarah",
+    "birth": 1988,
+    "death": 'Still Alive'
+}}, {"title": "Up and Coming Golf Samurai",
+"name": "Smylie Kaufman",
 "bio": "Stuff",
-"image": "dontcare",
+"image": "images/smylie-kaufman.jpg",
 "lifespan": {
-    "birth": 1845,
-    "death": 1900
+    "birth": 1996,
+    "death": 'Still Alive'
 }}];
 let textInput = document.getElementById("textInput")
 
 let renderPeople = function() {
     for(var i = 0; i < people.length; i++) {
         let personElement = document.createElement("div");
-        personElement.id = i;
-        personElement.innerHTML += `<div class = 'titleName'> ${people[i].title} ${people[i].name}</div> <br>`;
-        personElement.innerHTML += `<div class = bioImage> ${people[i].bio} <br> ${people[i].image}</div> <br>`;
-        personElement.innerHTML += `<div class = lifespan> Born: ${people[i].lifespan.birth} <br> Died: ${people[i].lifespan.death}</div><br>`
+        personElement.classList.add('peopleDiv');
+        personElement.id = i
+        personElement.innerHTML += `<div id="${i}" class = 'titleName'> Title: ${people[i].title} <br> Name: ${people[i].name}</div> <br>`;
+        personElement.innerHTML += `<div id="${i}" class = 'bioImage'> Bio: ${people[i].bio} <br> <img class ='image' src = ${people[i].image}> </div> <br>`;
+        personElement.innerHTML += `<div id="${i}" class = 'lifespan'> Born: ${people[i].lifespan.birth} <br> Died: ${people[i].lifespan.death}</div><br>`
         personElement.addEventListener("click", () => {
             personElement.classList.toggle("border");
             textInput.className = personElement.id;
