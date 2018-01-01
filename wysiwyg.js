@@ -1,4 +1,4 @@
-var people = [{"title": "Samurai",
+let people = [{"title": "Samurai",
 "name": "Tim",
 "bio": "Stuff",
 "image": "dontcare",
@@ -28,9 +28,7 @@ var people = [{"title": "Samurai",
     "death": 1900
 }}];
 
-let textInput = document.getElementById("textinput")
-
-function renderPeople() {
+let renderPeople = function() {
     for(var i = 0; i < people.length; i++) {
         let personElement = document.createElement("div");
         personElement.id = i;
@@ -44,10 +42,12 @@ function renderPeople() {
     }
 }
 
+let textInput = document.getElementById("textInput")
+
 textInput.addEventListener("input", (event) => {
     people[parseInt(event.target.className)].bio = event.target.value;
     document.getElementById("container").innerHTML = ""
     renderPeople()
-})
+});
 
-renderPeople()
+renderPeople();
