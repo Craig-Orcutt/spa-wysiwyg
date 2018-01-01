@@ -27,12 +27,13 @@ let people = [{"title": "Samurai",
     "birth": 1845,
     "death": 1900
 }}];
+let textInput = document.getElementById("textInput")
 
 let renderPeople = function() {
     for(var i = 0; i < people.length; i++) {
         let personElement = document.createElement("div");
         personElement.id = i;
-        personElement.innerHTML += people[i].name + " - " + people[i].bio;
+        personElement.innerHTML += people[i].name + " - " + people[i].bio + ' ' + people[i].image + people[i].lifespan.birth;
         personElement.addEventListener("click", () => {
             personElement.classList.toggle("border");
             textInput.className = personElement.id;
@@ -42,7 +43,6 @@ let renderPeople = function() {
     }
 }
 
-let textInput = document.getElementById("textInput")
 
 textInput.addEventListener("input", (event) => {
     people[parseInt(event.target.className)].bio = event.target.value;
