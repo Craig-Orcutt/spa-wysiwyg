@@ -33,7 +33,9 @@ let renderPeople = function() {
     for(var i = 0; i < people.length; i++) {
         let personElement = document.createElement("div");
         personElement.id = i;
-        personElement.innerHTML += people[i].name + " - " + people[i].bio + ' ' + people[i].image + people[i].lifespan.birth;
+        personElement.innerHTML += `<div class = 'titleName'> ${people[i].title} ${people[i].name}</div> <br>`;
+        personElement.innerHTML += `<div class = bioImage> ${people[i].bio} <br> ${people[i].image}</div> <br>`;
+        personElement.innerHTML += `<div class = lifespan> Born: ${people[i].lifespan.birth} <br> Died: ${people[i].lifespan.death}</div><br>`
         personElement.addEventListener("click", () => {
             personElement.classList.toggle("border");
             textInput.className = personElement.id;
@@ -41,7 +43,7 @@ let renderPeople = function() {
         })
         document.getElementById("container").appendChild(personElement);
     }
-}
+} 
 
 
 textInput.addEventListener("input", (event) => {
